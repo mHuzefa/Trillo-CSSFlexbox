@@ -1,0 +1,539 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+
+  &__logo {
+    height: 3.25rem;
+    margin-left: 3rem;
+  }
+}
+
+///////////////////////////
+//Search Box
+.search {
+  background-color: var(--color-grey-light-3);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px;
+  width: 39%;
+  height: 3rem;
+  padding: 0 2rem;
+  transition: all 0.3s;
+  box-shadow: 0 0.5rem 2rem rgba(#000, 0.3);
+  &:hover {
+    width: 42%;
+  }
+
+  &__input {
+    color: inherit;
+
+    font-family: inherit;
+    width: 90%;
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+  &__input::-webkit-input-placeholder {
+    font-size: inherit;
+    color: var(--color-grey-light-4);
+  }
+
+  &__btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    //padding-top: 2px;
+  }
+  &__icon {
+    height: 1.7rem;
+    width: 1.7rem;
+    //margin-top: 4px;
+    padding-top: 1px;
+    background-color: --color-grey-dark-3;
+  }
+}
+
+///////////////////////////
+//User Navigation
+.user-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
+
+  & > * {
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+
+    cursor: pointer;
+  }
+  & > *:hover {
+    background-color: var(--color-grey-light-3);
+  }
+
+  &__icon-box {
+    position: relative;
+  }
+  &__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: var(--color-grey-dark-3);
+  }
+  &__notification {
+    font-size: 0.9rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-grey-light-3);
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //Adjusting the badge on top of icon
+    position: absolute;
+    top: 1.3rem;
+    right: 0.9rem;
+  }
+
+  &__user-img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  &__user-name {
+    font-weight: 700;
+  }
+}
+
+///////////////////////////
+//Side Bar
+
+.sidebar {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+
+  .active {
+    background-color: var(--color-primary-light);
+  }
+  &__list {
+    list-style: none;
+    margin-top: 2rem;
+    @media screen and (max-width: 800px) {
+      display: flex;
+      flex-direction: row;
+      margin-top: 0;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__items {
+    padding: 1.5rem 0 1.5rem 2.5rem;
+    position: relative;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: inherit;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+    @media screen and (max-width: 800px) {
+      padding: 1rem 3rem 1rem 1rem;
+    }
+  }
+  &__items::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    transform: scaleY(0);
+    background-color: var(--color-primary);
+    transition: transform 0.2s, width cubic-bezier(1, 0, 0, 1) 0.4s 0.2s;
+  }
+
+  &__items:hover::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+  &__items:active::before {
+    background-color: var(--color-primary-light);
+  }
+
+  &__links {
+    display: flex;
+    justify-content: flex-start;
+    position: relative; //for z-index to work.
+    z-index: 10;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+  }
+  &__icons {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2.3rem;
+    fill: #fff;
+  }
+  &__name {
+    font-size: 4rem;
+  }
+}
+.footer {
+  align-self: center;
+  justify-self: center;
+  margin-bottom: 2rem;
+  p {
+    text-align: center;
+  }
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+}
+////////////////////////
+//GALLERY
+
+.gallery {
+  display: flex;
+  &__photos {
+    width: 100%;
+    display: block;
+  }
+}
+////////////////////////
+//Rating and Location
+.hotel__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+
+  border-bottom: 2px solid var(--color-grey-light-3);
+
+  &--1 {
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 420px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .hotel__name {
+      padding: 1.25rem 2.25rem;
+      font-size: 2.25rem;
+      text-transform: uppercase;
+      font-weight: 400;
+      @media screen and (max-width: 420px) {
+        padding: 1.25rem 0 0.7rem 0;
+      }
+    }
+
+    .star__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: var(--color-primary);
+    }
+  }
+  &--2 {
+    display: flex;
+    .location {
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+
+      &__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--color-primary);
+      }
+      &__name {
+        font-size: 1.2rem;
+        border-bottom: 1px solid var(--color-primary);
+        padding-bottom: 2px;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-left: 5px;
+      }
+    }
+
+    .avg-rating {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      color: #fff;
+
+      background-color: var(--color-primary);
+      &__number {
+        font-size: 2.25rem;
+        font-weight: 700;
+      }
+      &__votes {
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+///////////////////////////
+//MAIN CONTENT
+//////////////////////////
+.paragraph {
+  &:not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
+  @media screen and (max-width: 600px) {
+    margin-bottom: 1.5rem;
+  }
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 0;
+  margin: 3rem 0;
+  list-style: none;
+  border-bottom: 2px solid var(--color-grey-light-3);
+  border-top: 2px solid var(--color-grey-light-3);
+  @media screen and (max-width: 600px) {
+    margin: 2rem 0;
+    padding: 2rem 0;
+  }
+  &__items {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem;
+    @media screen and (max-width: 365px) {
+      flex-basis: 80%;
+    }
+    &::before {
+      content: '';
+      /* background-image: url(../img/chevron-thin-right.svg);
+      background-size: cover; */
+
+      width: 1rem;
+      height: 1rem;
+      margin-right: 0.9rem;
+      display: inline-block;
+      fill: var(--color-primary);
+      @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+        background-image: none;
+      }
+    }
+  }
+}
+
+////////////////////
+//Recommendation
+///////////////////
+
+.recommend {
+  display: flex;
+  align-items: center;
+  //justify-content: space-between;
+  &__count {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+    margin-right: auto;
+  }
+
+  &_photo {
+    box-sizing: content-box;
+    width: 4rem;
+    height: 4rem;
+    @media screen and (max-width: 600px) {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    border-radius: 50%;
+    border: 3px solid #fff;
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+    }
+  }
+}
+/////////////////////
+//Inline-Button/////
+////////////////////
+.inline-btn {
+  outline: none;
+  border: none;
+  display: flex;
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  border-bottom: 1px solid var(--color-primary);
+  padding-bottom: 3px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  &__text {
+    margin-right: 0.6rem;
+    transition: all 0.3s;
+  }
+}
+.inline-btn:hover {
+  transform: scale(1.1);
+  color: #333;
+  border-bottom: 1px solid #333;
+}
+.inline-btn:hover .inline-btn__text {
+  margin-right: 1rem;
+}
+.inline-btn:focus {
+  animation: pulsate 0.3s infinite;
+}
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0rem 2rem 2rem rgba(#000, 0.2);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+////////////////////
+//Review Section
+///////////////////
+
+.review {
+  background-color: #fff;
+  box-shadow: rgba($color: #000000, $alpha: 0.06);
+  padding: 2rem 3rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+
+  &::before {
+    content: '\201C';
+    position: absolute;
+    font-size: 14rem;
+    font-family: sans-serif;
+    color: var(--color-grey-light-3);
+    top: -2.75rem;
+    left: -0.6rem;
+    z-index: 1;
+  }
+
+  &__text {
+    margin-bottom: 2rem;
+    z-index: 30;
+    position: relative;
+  }
+  &__user-photo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  &:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    &-info {
+      margin-right: auto;
+    }
+    &-name {
+      font-size: 2rem;
+      font-weight: 300;
+      @media screen and (max-width: 800px) {
+        font-size: 1.4rem;
+      }
+    }
+    &-date {
+      font-size: 1rem;
+      font-weight: 400;
+      @media screen and (max-width: 800px) {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+//////////////////////
+///Call to Action////
+/////////////////////
+.cta {
+  &__text {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2;
+    padding: 2rem 0;
+  }
+}
+////////////////////
+//CTA Button///////
+//////////////////
+.btn {
+  outline: none;
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+  transition: all 1s;
+  overflow: hidden;
+  animation: pulsate 0.8s infinite;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  cursor: pointer;
+  &:hover {
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-dark),
+      var(--color-primary-light)
+    );
+  }
+
+  &__visible {
+    display: inline-block;
+    padding: 1.5rem 6.5rem;
+    transition: all 0.2s;
+  }
+  &__invisible {
+    position: absolute;
+    top: -100%;
+
+    left: 1.7rem;
+    padding: 1.5rem;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  &:hover &__invisible {
+    top: 0;
+  }
+  &:hover &__visible {
+    transform: translateY(4rem);
+  }
+}
